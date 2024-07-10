@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <label for="name">Enter Name :</label>
+        <input type="text" name="uname" id="name"><br><br>
+
+        <label for="age">Enter Age :</label>
+        <input type="number" name="uage" id="age"><br><br>
+
+        <button type="submit">submit</button>
+
+    </form>
+    <table border="1">
+        <tr>
+            <th>id </th>
+            <th>name</th>
+            <th>age</th>
+        </tr>
+    {% for data in xyz%}
+        <tr>
+            <td>{{ data.id}}</td>
+            <td>{{ data.name}}</td>
+            <td>{{ data.age }}</td>
+        </tr>
+    {% endfor %}
+</table>
+    <h1>
+        This is from Home Page
+    </h1>
+    <!-- <img src="{% static 'images/persian.jpg'%}" alt=""> -->
+    <img src="{% static 'images/persian.jpeg'%}" alt="" width="500px">
+
+    <a href="{% url 'basic'%}">click</a>
+</body>
+</html>
